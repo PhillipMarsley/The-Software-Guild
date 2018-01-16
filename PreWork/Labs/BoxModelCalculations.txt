@@ -1,0 +1,53 @@
+-----------
+Assigment:
+-----------
+    #div1 {
+        height: 150px;
+        width: 400px;
+        margin: 20px;
+        border: 1px solid red;
+        padding: 10px;
+    }
+
+    For this object, calculate:
+        Total height
+        Total width
+        Browser calculated height
+        Browser calculated width
+
+
+    Save your answers in a file named BoxModelCalculations.txt and be sure to show your work as to how you arrived at the answers.
+    Add this file to your local repository and check it into your GitHub repository.
+    
+-------------------   
+Solutions and Work:
+-------------------
+    Total           = margin + border + padding + content + padding + border + margin
+    Browser         =          border + padding + content + padding + border
+    addition order  = left -> right
+    addition order  = top -> bottom
+
+    Total width     = 20 + 1 + 10 + 400 + 10 + 1 + 20
+    Total height    = 20 + 1 + 10 + 150 + 10 + 1 + 20
+    Browser width   =      1 + 10 + 400 + 10 + 1
+    Browser height  =      1 + 10 + 150 + 10 + 1
+
+    total width     = 462
+    total hight     = 212
+    browser width   = 422
+    browser height  = 172
+
+    Or if the margin, border, and padding are the same on all sides:
+
+    total           = ((margin + border + padding) x2) + content
+    browser         = ((border + padding) x2) + content
+
+    total width     = ((20 + 1 + 10) x2) + 400
+    total height    = ((20 + 1 + 10) x2) + 150
+    browser width   = ((1 + 10) x2) + 400
+    browser height  = ((1 + 10) x2) + 150
+
+    total width     = 462
+    total height    = 212
+    browser width   = 422
+    brwoser width   = 172

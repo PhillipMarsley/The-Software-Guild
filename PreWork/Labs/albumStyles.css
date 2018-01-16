@@ -1,0 +1,43 @@
+body {
+    margin: 1em;
+}
+
+.albumImgDiv {
+    max-width: 450px;
+}
+
+a:hover {
+    background-color: rgb(180, 180, 178);
+}
+
+h1, h2, h3, h4, table, caption, th {
+    text-align: center;
+}
+
+li, td {
+    font-style: italic;
+}
+
+caption {
+    font-size: 150%;
+}
+
+.font {
+    font-family: Brush Script MT;
+}
+
+hr {
+    border: 1px solid black;
+}
+
+th {
+    background-color: lightgray;
+}
+
+.table-striped {
+    background-color: rgb(243, 243, 233);
+}
+
+.table, .table-bordered th, .table-bordered td {
+    border: .1em solid black !important;
+}
