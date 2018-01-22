@@ -26,18 +26,6 @@ import java.util.Scanner;
     What is your age? 50
     Your maximum heart rate should be 170 beats per minute
     Your target HR Zone is 85 - 145 beats per minute
-
-
-    QUESTIONS
-    ---------
-    // 220 -  50 = 170
-    // 170 * .85 = 144.5
-    // 145 -  50 = 95
-
-    //What exactly is the problem asking for the target heart rate?
-    //is it:
-    //	(85% of the maxium - 50) through (85% of the maxium)
-    //	???
  */
 
 public class HealthyHearts {
@@ -55,7 +43,7 @@ public class HealthyHearts {
 	maxHeartRate = 220 - age;
 	System.out.println("Your maximum heart rate should be " + maxHeartRate + " beats per minute");
 	highRange = maxHeartRate * .85;
-	lowRange = highRange - 50;
+	lowRange = maxHeartRate * .50;
 	System.out.println("Your target HR Zone is " + Math.round(lowRange) + " - " + Math.round(highRange) + " beats per minute");
     }
 }
