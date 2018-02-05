@@ -103,7 +103,8 @@ public class Controller {
 	    service.updateQuanity(service.getItem(userInput), -1);
 	}
 	catch (NoItemInventoryException ex) {
-	    //do nothing
+	    //do nothing because user is not given the option to choose an item that has a
+	    //quanity of zero or less
 	}
 	view.displayBlankConsoleLine();
 

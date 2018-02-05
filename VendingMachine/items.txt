@@ -1,5 +1,5 @@
 The One Ring::0.01::0::
-Mountain Dew (10oz)::1.25::11::
-Mountain Dew Live Wire (10oz)::1.25::12::
+Mountain Dew (10oz)::1.25::8::
+Mountain Dew Live Wire (10oz)::1.25::11::
 Mountain Drew Throw Back (10oz)::1.25::12::
 Mountain Drew Super (30oz)::3.75::4::

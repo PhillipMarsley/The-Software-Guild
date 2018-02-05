@@ -134,11 +134,11 @@ public class Service {
     }
 
     public VendableItem addItem(int itemKey, VendableItem item) {
-	return dao.addItem(itemKey, item);
+	return getItemList().put(itemKey, item);
     }
 
     public VendableItem removeItem(int itemKey) {
-	return dao.removeItem(itemKey);
+	return getItemList().remove(itemKey);
     }
 
     public VendableItem getItem(int itemKey) throws NoItemInventoryException {
