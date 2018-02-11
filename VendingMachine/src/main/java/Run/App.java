@@ -6,12 +6,8 @@
 package Run;
 
 import Controller.Controller;
-import Dao.Dao;
-import Dao.DaoImpl;
-import Service.Service;
-import Ui.UserIO;
-import Ui.UserIOConsoleImpl;
-import Ui.View;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  *
@@ -19,11 +15,8 @@ import Ui.View;
  */
 public class App {
     public static void main(String[] args) {
-	UserIO io = new UserIOConsoleImpl();
-	View view = new View(io);
-	Dao dao = new DaoImpl();
-	Service service = new Service(dao);
-	Controller controller = new Controller(service, view);
+	ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+	Controller controller = ac.getBean("controller", Controller.class);
 	
 	controller.run();
     }

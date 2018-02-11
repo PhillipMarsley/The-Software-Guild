@@ -1,0 +1,5 @@
+The One Ring::0.01::0::
+Mountain Dew::1.25::24::
+Mountain Dew Voltage::1.25::12::
+Mountain Dew Throw Back::1.25::12::
+Mountain Dew Super::3.00::6::

@@ -73,6 +73,50 @@ public class Service {
 	return result.setScale(2, RoundingMode.HALF_UP);
     }
 
+    public int getQuanity(VendableItem item) {
+	return dao.getQuanity(item);
+    }
+
+    public void updateQuanity(VendableItem item, int count) throws NoItemInventoryException {
+	if (item.getQuanity() < 1 && count < 1) {
+	    throw new NoItemInventoryException("No more of that item in vending machine.");
+	}
+	dao.updateQuanity(item, count);
+    }
+
+    public VendableItem addItem(int itemKey, VendableItem item) {
+	return dao.addItem(itemKey, item);
+    }
+
+    public VendableItem removeItem(int itemKey) {
+	return dao.removeItem(itemKey);
+    }
+
+    //==========================================================================
+    //==========================================================================
+    //==========================================================================
+    
+    public Map<Integer, VendableItem> getItemList() {
+	int[] i = new int[1];
+	Map<Integer, VendableItem> newList
+		= dao.getItemList().stream()
+			.filter((item) -> dao.getQuanity(item) > 0)
+			.collect(Collectors.toMap((item) -> i[0]++, (item) -> item));
+	return newList;
+    }
+
+    public VendableItem getItem(int itemKey) throws NoItemInventoryException {
+	if (getItemList().get(itemKey).getQuanity() < 1) {
+	    throw new NoItemInventoryException("No more of " + getItemList().get(itemKey).getName() + " in vending machine.");
+	}
+	return getItemList().get(itemKey);
+    }
+    
+   //used by logging system
+   public String getItemName(int itemKey) {
+       return getItemList().get(itemKey).getName();
+   }
+
     public int[] checkFunds(BigDecimal userMoney, int itemKey) throws InsufficientFundsException {
 
 	if (userMoney.compareTo(getItemList().get(itemKey).getCost()) < 0) {
@@ -121,48 +165,4 @@ public class Service {
 
 	return changeAmounts;
     }
-
-    public int getQuanity(VendableItem item) {
-	return dao.getQuanity(item);
-    }
-
-    public void updateQuanity(VendableItem item, int count) throws NoItemInventoryException {
-	if (item.getQuanity() < 1 && count < 1) {
-	    throw new NoItemInventoryException("No more of that item in vending machine.");
-	}
-	dao.updateQuanity(item, count);
-    }
-
-    public VendableItem addItem(int itemKey, VendableItem item) {
-	return getItemList().put(itemKey, item);
-    }
-
-    public VendableItem removeItem(int itemKey) {
-	return getItemList().remove(itemKey);
-    }
-
-    public VendableItem getItem(int itemKey) throws NoItemInventoryException {
-	if (getItemList().get(itemKey).getQuanity() < 1) {
-	    throw new NoItemInventoryException("No more of " + getItemList().get(itemKey).getName() + " in vending machine.");
-	}
-	return getItemList().get(itemKey);
-    }
-
-    /**
-     * Produces a map of VendableItem(s) where the quanity field is greater then
-     * zero.
-     * <p>
-     * Each item gets a new key.
-     *
-     * @return A list of VendableItem(s)
-     */
-    public Map<Integer, VendableItem> getItemList() {
-	int[] i = new int[1];
-	Map<Integer, VendableItem> newList
-		= dao.getItemList().stream()
-			.filter((item) -> dao.getQuanity(item) > 0)
-			.collect(Collectors.toMap((item) -> i[0]++, (item) -> item));
-	return newList;
-    }
-
 }
