@@ -9,8 +9,12 @@ import dao.DaoImplOrders;
 import dao.DaoImplProducts;
 import dao.DaoImplTaxes;
 import dao.DaoPersistanceException;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -20,8 +24,6 @@ import model.Product;
 import model.State;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
@@ -37,6 +39,15 @@ public class ServiceTest {
     private DaoImplTaxes dit = new DaoImplTaxes();
     private String mode = "Production";
     private Service service = new Service(dio, dip, dit, mode);
+    
+    private LocalDate date = LocalDate.now().plusYears(100);
+    private String dateKey = date.format(DateTimeFormatter.ofPattern("MMddyyyy"));
+
+    private String fileName = "data"
+		+ File.separator + "orders"
+		+ File.separator + "Orders_" + dateKey + ".txt";
+
+    private File fileA = new File(fileName);
 
     private List<Order> orders = new ArrayList<>();
 
@@ -83,6 +94,7 @@ public class ServiceTest {
     public void tearDown() {
 	orders.remove(order1);
 	orders.remove(order2);
+	fileA.delete();
     }
 
     @Test
@@ -124,23 +136,45 @@ public class ServiceTest {
 	}
     }
 
-    //==========================================================================
-    //		pass trough methods
-    //	  V	already tested in DaoImplOrdersTest	V
-    //==========================================================================
-    @Test
-    public void testRemoveOrder() {
-    }
-
-    @Test
-    public void testGetOrder() {
-    }
-
-    @Test
     public void testGetOrders() {
+	try {
+	    PrintWriter writer = new PrintWriter(fileA);
+	    //pass
+	    writer.close();
+	}
+	catch (FileNotFoundException ex) {
+	    fail();
+	}
+
+	try {
+	    service.getOrders(date);
+	    //pass
+	}
+	catch (DaoPersistanceException | DataValidationException ex) {
+	    fail();
+	}
     }
 
-    @Test
-    public void testSave() {
+    public void testReplaceOrderInList() {
+	dio.getAllOrders().put(dateKey, orders);
+
+	try {
+	    service.replaceOrderInList(LocalDate.MAX, order1, order2);
+	    //pass
+	}
+	catch (DaoPersistanceException ex) {
+	    fail();
+	}
+
+	try {
+	    assertEquals(2, dio.getOrders(date).size());
+	    assertEquals(dio.getOrders(date).get(0).getOrderTotal(),
+		    dio.getOrders(date).get(1).getOrderTotal());
+	    //pass
+	}
+	catch (DaoPersistanceException ex) {
+	    fail();
+	}
     }
+
 }

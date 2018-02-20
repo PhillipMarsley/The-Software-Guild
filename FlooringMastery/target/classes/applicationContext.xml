@@ -37,7 +37,7 @@
         <constructor-arg ref="daoTaxes"/>
         
         <!-- Mode Selection (Training / Production) -->
-        <constructor-arg value="Training"/>
+        <constructor-arg value="Production"/>
     </bean>
     
     <bean id="daoOrders" class="dao.DaoImplOrders"/>

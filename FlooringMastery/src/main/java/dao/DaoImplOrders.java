@@ -127,6 +127,30 @@ public class DaoImplOrders implements DaoOrders {
     //==========================================================================
     //	    File Reading
     //==========================================================================
+    public boolean checkIfDateExists(LocalDate date) {
+	List<String> listOfFiles = new ArrayList<>();
+
+	File folder = new File("data" + File.separator + "orders");
+	File[] files = folder.listFiles();
+
+	for (File f : files) {
+	    listOfFiles.add(f.getName());
+	}
+
+	List<LocalDate> listOfDates = listOfFiles.stream()
+		.map((s) -> s.substring(s.indexOf("_") + 1, s.indexOf(".")))
+		.map((s) -> LocalDate.parse(s, DateTimeFormatter.ofPattern("MMddyyyy")))
+		.collect(Collectors.toList());
+
+	if (listOfDates.stream()
+		.anyMatch(d -> d.equals(date))) {
+	    return true;
+	}
+
+	return date.equals(LocalDate.now())
+		&& getOrdersListForToday().size() > 0;
+    }
+
     private void readFile(String fileName) throws DaoPersistanceException {
 	Scanner scanner;
 	File file = new File(fileName);

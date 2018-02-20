@@ -6,6 +6,8 @@
 package dao;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -18,6 +20,7 @@ import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -112,6 +115,10 @@ public class DaoImplOrdersTest {
 	Order orderA = createOrder();
 	Order orderB = createOrder();
 	Order orderC = createOrder();
+	
+	orderA.setOrderNumber(9999);
+	orderB.setOrderNumber(8888);
+	orderC.setOrderNumber(7777);
 
 	try {
 	    //added order1, order2, and order3
@@ -170,6 +177,22 @@ public class DaoImplOrdersTest {
 	tempList.add(order3);
 
 	assertEquals(tempList, dio.getAllOrders().get(dateKey));
+    }
+    
+    @Test
+    public void testCheckIfDateExists() {
+	try {
+	    PrintWriter writer = new PrintWriter(fileA);
+	    //pass
+	}
+	catch (FileNotFoundException ex) {
+	    fail();
+	}
+	assertTrue(dio.checkIfDateExists(date));
+	
+	LocalDate date2 = LocalDate.of(9999, 10, 10);
+	
+	assertFalse(dio.checkIfDateExists(date2));
     }
 
     @Test
