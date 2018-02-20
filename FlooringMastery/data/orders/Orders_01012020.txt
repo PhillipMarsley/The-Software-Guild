@@ -1,0 +1,2 @@
+OrderNumber,CustomerName,State,TaxRate,ProductType,Area,CostPerSquareFoot,LaborCostPerSquareFoot,MaterialCost,LaborCost,Tax,Total
+1,YinLu,OH,6.25,Wood,100.00,5.15,4.75,515.0000,475.0000,61.87500000,1051.87500000
