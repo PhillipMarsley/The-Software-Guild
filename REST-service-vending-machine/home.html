@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html>
+<header>
+    <meta charset="UTF-8">
+    <title>Vending Machine</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+
+    <style>
+        /*
+        =====================================
+        General
+        =====================================
+        */
+
+        body {
+            width: 96%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        hr {
+            border: 1px solid black;
+        }
+
+        h3 {
+            margin-bottom: .2em;
+        }
+
+        /*
+        =====================================
+        Layout
+        =====================================
+        */
+
+        .row {
+            margin: auto;
+        }
+
+        .col {
+            margin: auto;
+            padding: .3em;
+        }
+
+        .itemBox {
+            margin: 1em;
+            border: 2px solid black;
+        }
+
+        .itemBoxRow {
+            padding: .4em;
+            display: block;
+        }
+
+        .number {
+            height: .1em;
+            padding-top: 0;
+            text-align: left;
+        }
+
+        .quantity {
+            margin-top: 1em;
+        }
+
+        /* 
+        ===================================
+        Forms 
+        ==================================
+        */
+
+        label {
+            font-size: 150%;
+        }
+
+        input,
+        button {
+            width: 90%;
+            margin: 0 auto;
+            padding: .2em;
+            display: block;
+            text-align: center;
+        }
+
+        input {
+            font-size: 120%;
+        }
+    </style>
+</header>
+
+<body>
+    <div id='divHeader'>
+        <h1>Vending Machine</h1>
+    </div>
+
+    <hr/>
+
+    <div class='container-fluid'>
+        <div class='row'>
+
+            <!--
+                ===================================================================
+                Left Side
+                ===================================================================
+            -->
+            <div id='divItems' class='container' style='width:70%'>
+                <!-- generate rows and colums -->
+            </div>
+
+            <!--
+                ===================================================================
+                Right Side
+                ===================================================================
+            -->
+            <div id='divControls' class='container' style='width:30%'>
+                <div id='divChangeInput'>
+                    <h3>Total $ In</h3>
+                    <form id='formChangeInput' onsubmit='return false;'>
+                        <div class='row'>
+                            <div class='col'>
+                                <input id='inputTotalChange' type='text' name='totalChange' readonly>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col'>
+                                <button id='addDollarButton'>Add Dollar</button>
+                            </div>
+                            <div class='col'>
+                                <button id='addQuarterButton'>Add Quarter</button>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col'>
+                                <button id='addDimeButton'>Add Dime</button>
+                            </div>
+                            <div class='col'>
+                                <button id='addNickleButton'>Add Nickle</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <hr/>
+                <div id='divPurchase'>
+                    <h3>Messages</h3>
+                    <form id='formPurchase' onsubmit='return false;'>
+                        <div class='row'>
+                            <div class='col'>
+                                <input id='inputMessage' type='text' name='message' readonly>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col'>
+                                <label>Item:</label>
+                            </div>
+                            <div class='col'>
+                                <input id='inputItem' type='text' name='item' readonly>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col'>
+                                <button id='makePurchaseButton'>Make Purchase</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <hr/>
+                <div id='divChangeRecieve'>
+                    <h3>Change</h3>
+                    <form id='formChangeRecieved' onsubmit='return false;'>
+                        <div class='row'>
+                            <input id='inputChangeRecieved' type='text' name='changeRecieved' readonly>
+                        </div>
+                        <div class='row'>
+                            <div class='col'>
+                                <button id='returnChangeButton'>Change Return</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src='js/jquery-3.3.1.min.js'></script>
+    <script src='js/home.js'></script>
+</body>
+
+</html>
