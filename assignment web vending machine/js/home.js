@@ -14,17 +14,20 @@ var inputMessage = $('#inputMessage');
 var inputItemNumber = $('#inputItem');
 var inputChangeRecieved = $('#inputChangeRecieved');
 
-/* Note: All cash is handled as a whole number for accuracy. Decimals are injected to the string after. */
+/* 
+Note: All cash is handled as a whole number for accuracy. 
+Decimals are injected to the string after. 
+Total cash is converted to a float before being sent to the server.
+*/
 var totalCash = 0;
 
 var messageSuccess = "Thank you!!!";
-var messageNoQuanityLeft = "SOLD OUT!!!";
 
 function loadItems() {
     $.ajax({
         type: 'GET',
         url: 'http://localhost:8080/items',
-        dataType: 'json',
+        dataType: 'JSON',
         success: function (response) {
             var counter = 0;
             itemContainer.empty();
@@ -48,48 +51,13 @@ function loadItems() {
             }
         },
         error: function () {
-
+            console.log('Sever could not be loaded');
         }
     });
 }
 
-function getVendItem(amount, id) {
-    console.log(amount);
-
-    $.ajax({
-        type: 'GET',
-        url: 'http://localhost:8080/money/' + amount + '/item/' + id,
-        datatype: 'JSON',
-        success: function (response) {
-            inputMessage.val(messageSuccess);
-
-            var changeString = '';
-            if (response.quarters > 0) {
-                changeString = changeString.concat('Quater(s): ' + response.quarters + ' ');
-            }
-            if (response.dimes > 0) {
-                changeString = changeString.concat('Dime(s): ' + response.dimes + ' ');
-            }
-            if (response.nickles > 0) {
-                changeString = changeString.concat('Nickle(s): ' + response.nickles + ' ');
-            }
-            if (response.pennies > 0) {
-                changeString = changeString.concat('Pennies: ' + response.pennies);
-            }
-
-            inputChangeRecieved.val(changeString);
-        },
-        error: function (response) {
-            inputMessage.val(response.responseJSON.message);
-        }
-    });
-}
-
-function clearForms() {
-    inputTotalChange.val('');
-    inputMessage.val('');
-    inputItemNumber.val('');
-    inputChangeRecieved.val('');
+function convertTotalToFloat(string) {
+    return parseFloat(totalCash).toFixed(2);
 }
 
 function stringIntoDouble(string, percision) {
@@ -114,26 +82,63 @@ function stringIntoDouble(string, percision) {
     return firstHalf.concat('.', zeros, secondHalf);
 }
 
-function addCash(event, amount) {
+function addCash(amount) {
     totalCash += amount;
 
     var output = stringIntoDouble(totalCash.toString(), 2);
     inputTotalChange.val(output);
 
+    inputMessage.val('');
     inputChangeRecieved.val('');
-
-    event.preventDefault;
-    return false;
-}
-
-function convertTotalToFloat(string) {
-    return parseFloat(totalCash).toFixed(2);
 }
 
 function getItem(element) {
     var id = element.getElementsByClassName('number')[0].innerHTML;
-    inputItemNumber.val(id);
 
+    inputItemNumber.val(id);
+    inputMessage.val('');
+    inputChangeRecieved.val('');
+}
+
+function getVendItem(amount, id) {
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:8080/money/' + amount + '/item/' + id,
+        datatype: 'JSON',
+        success: function (response) {
+            inputMessage.val(messageSuccess);
+
+            var changeString = '';
+            if (response.quarters > 0) {
+                changeString = changeString.concat('Quater(s): ' + response.quarters + ' ');
+            }
+            if (response.dimes > 0) {
+                changeString = changeString.concat('Dime(s): ' + response.dimes + ' ');
+            }
+            if (response.nickles > 0) {
+                changeString = changeString.concat('Nickle(s): ' + response.nickles + ' ');
+            }
+            if (response.pennies > 0) {
+                changeString = changeString.concat('Pennies: ' + response.pennies);
+            }
+
+            totalCash = 0;
+            inputTotalChange.val('');
+            inputChangeRecieved.val(changeString);
+
+            //reloads items to update quanity
+            loadItems();
+        },
+        error: function (response) {
+            inputMessage.val(response.responseJSON.message);
+        }
+    });
+}
+
+function clearForms() {
+    inputTotalChange.val('');
+    inputMessage.val('');
+    inputItemNumber.val('');
     inputChangeRecieved.val('');
 }
 
@@ -142,36 +147,30 @@ $(document).ready(function () {
     loadItems();
     clearForms();
 
-    buttonAddDollar.click(function (event) {
-        return addCash(event, 100);
+    buttonAddDollar.click(function () {
+        return addCash(100);
     });
 
-    buttonAddQuarter.click(function (event) {
-        return addCash(event, 25);
+    buttonAddQuarter.click(function () {
+        return addCash(25);
     });
 
-    buttonAddDime.click(function (event) {
-        return addCash(event, 10);
+    buttonAddDime.click(function () {
+        return addCash(10);
     });
 
-    buttonAddNickle.click(function (event) {
-        return addCash(event, 5);
+    buttonAddNickle.click(function () {
+        return addCash(5);
     });
 
-    buttonMakePurchase.click(function (event) {
+    buttonMakePurchase.click(function () {
         var total = parseFloat(stringIntoDouble(totalCash.toString(), 2));
         var item = inputItemNumber.val();
 
         getVendItem(total, item);
-
-        totalCash = 0;
-        inputTotalChange.val('');
-
-        event.preventDefault;
-        return false;
     });
 
-    buttonReturnChange.click(function (event) {
+    buttonReturnChange.click(function () {
         var total = parseInt(totalCash);
 
         var quarters = Math.floor(total / 25);
@@ -202,8 +201,5 @@ $(document).ready(function () {
         inputTotalChange.val('');
         inputMessage.val('');
         inputItemNumber.val('');
-
-        event.preventDefault;
-        return false;
     });
 });
