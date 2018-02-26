@@ -120,6 +120,8 @@ function addCash(event, amount) {
     var output = stringIntoDouble(totalCash.toString(), 2);
     inputTotalChange.val(output);
 
+    inputChangeRecieved.val('');
+
     event.preventDefault;
     return false;
 }
@@ -131,6 +133,8 @@ function convertTotalToFloat(string) {
 function getItem(element) {
     var id = element.getElementsByClassName('number')[0].innerHTML;
     inputItemNumber.val(id);
+
+    inputChangeRecieved.val('');
 }
 
 //loads before images
@@ -159,6 +163,9 @@ $(document).ready(function () {
         var item = inputItemNumber.val();
 
         getVendItem(total, item);
+
+        totalCash = 0;
+        inputTotalChange.val('');
 
         event.preventDefault;
         return false;
@@ -190,6 +197,11 @@ $(document).ready(function () {
         }
 
         inputChangeRecieved.val(changeString);
+
+        totalCash = 0;
+        inputTotalChange.val('');
+        inputMessage.val('');
+        inputItemNumber.val('');
 
         event.preventDefault;
         return false;
