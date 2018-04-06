@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Heros</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' type='text/css' href='../css/bootstrap.min.css'>
+        <link rel='stylesheet' type='text/css' href='../css/bootstrap-grid.min.css'>
+        <link rel='stylesheet' type='text/css' href='../css/header.css'>
+        <style>
+            #editHeroDiv, #addHeroDiv {
+                background: rgba(200, 200, 200, .5);
+                text-align: center;
+            }
+
+            #addHeroButton {
+                margin: 0 auto;
+            }
+
+            .row {
+                text-align: center;
+            }
+
+            .tableButton {
+                width: 80%;
+                padding: .1em .4em;
+                margin: .2em -.5em;
+            }
+
+            .removeTableApperance {
+                border: none;
+                background: transparent;
+            }
+
+            #dropdownDiv {
+                position: relative;
+            }
+
+            .info {
+                margin: 0 auto;
+            }
+
+            #superpowersDetailsDiv table, 
+            #organizationsDetailsDiv table,
+            #locationDetailsDiv table {
+                margin: 1em auto;
+                border: 1px solid black;
+            }
+
+            .errorDiv {
+                margin: .2em;
+                padding: .2em;
+                border: 2px solid red; 
+                background: #ffe8e8; 
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id='header'>
+            <h1>HERO</h1>
+            <h4><i>Hero Education and Relationship Hero</i></h4>
+            <img src='https://upload.wikimedia.org/wikipedia/commons/5/5c/Placeholder_couple_superhero.png' alt='Image did not load.'>
+        </div>
+
+        <div id='navbar' class='navbar'></div>
+
+        <div class='container'>
+            <button id='addHeroButton' class="btn btn-default" onclick='openAddHeroDiv()'>Add a new Hero</button>
+        </div>
+
+        <div id='addHeroDiv' class='container'>
+            <h3>Add a new Hero</h3>
+            <div class='info'>
+                For windows: Hold down the control (ctrl) button to select multiple options
+                <br/>
+                For Mac: Hold down the command button to select multiple options
+            </div>
+            <form class="form-horizontal" role="form" method='POST' action="" onsubmit="return false">
+                <div class='row'>
+                    <div class='col'>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Id</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='addId' type="text" class="form-control" readonly='readonly'/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div id='addFormErrors' class='col'>
+                        <!-- filled in from hero.js -->
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col'>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Name</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='addName' type="text" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Superpowers</label>
+                            </div>
+                            <div class="col-8">
+                                <select multiple id='addSuperpowers' class='form-control'>
+                                    <!-- filled in by heros.js -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col'>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Description</label>
+                            </div>
+                            <div class='col-8'>
+                                <input id='addDescription' type="text" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Organizations</label>
+                            </div>
+                            <div class="col-8">
+                                <select multiple id='addOrganizations' class='form-control'>
+                                    <!-- filled in by heros.js -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default" onclick='addHero()'>Add Hero</button>
+                </div>
+            </form>
+        </div>
+
+        <div id='editHeroDiv' class='container'>
+            <h3>Edit a Hero</h3>
+            <div class='info'>
+                For windows: Hold down the control (ctrl) button to select multiple options
+                <br/>
+                For Mac: Hold down the command button to select multiple options
+            </div>
+            <form class="form-horizontal" role="form" method="POST" action="" onsubmit="return false">
+                <div class='row'>
+                    <div class='col'>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Id</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='id' type="text" class="form-control" readonly='readonly'/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div id='formErrors' class='col'>
+                        <!-- filled in by heros.js -->
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col'>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Name</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='name' type="text" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Superpowers</label>
+                            </div>
+                            <div class="col-8">
+                                <select multiple id='superpowers' class='form-control'>
+                                    <!-- filled in by heros.js -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col'>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Description</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='description' type="text" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Organizations</label>
+                            </div>
+                            <div class="col-8">
+                                <select multiple id='organizations' class='form-control'>
+                                    <!-- filled in by heros.js -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default" onclick='updateHero()'> Update</button>
+                </div>
+            </form>
+        </div>
+
+        <div class='container'>
+            <div id='superpowersDetailsDiv' class='row'>
+                <!-- filled in with heros.js -->
+            </div>
+            <div id='organizationsDetailsDiv' class='row'>
+                <!-- filled in with heros.js -->
+            </div>
+            <div id='locationDetailsDiv' class='row'>
+                <!-- filled in with heros.js -->
+            </div>
+        </div>
+
+        <div class='container-fluid'>
+            <div class='row'>
+                <table id='heroTable'>
+                    <tr>
+                        <th colspan='5'>HEROS</th>
+                    </tr>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Superpowers</th>    <!-- Fix to show Superpower List and details -->
+                        <th>Heros</th>  <!-- Fix to show Hero List and details -->
+                    </tr>
+                    <!-- Added Columns and Rows -->
+                </table>
+            </div>
+        </div>
+
+        <script src="../js/jquery-3.1.1.min.js"></script>
+        <script src='../js/navbar.js'></script>
+        <script src='../js/heros.js'></script>
+    </body>
+</html>

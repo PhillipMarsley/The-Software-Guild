@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="33" failures="0" name="com.sg.dao.DaoImplTest" time="5.96" errors="0" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_151\jre\bin"/>
+    <property name="java.vm.version" value="25.151-b12"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\Users\Dan\Documents\Software Guild\Projects Web\SpringMVCHeroSighting2 (Assignment)"/>
+    <property name="java.runtime.version" value="1.8.0_151-b12"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_151\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\Dan\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="maven.ext.class.path" value="C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-eventspy.jar"/>
+    <property name="classworlds.conf" value="C:\Program Files\NetBeans 8.2\java\maven\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_151\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_151\bin;%MAVEN_HOME%C:\ProgramFiles\apache-maven-3.5.2\;%MAVEN_HOME%\bin;C:\MinGW\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Users\Dan\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\Microsoft VS Code\bin;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\Dan"/>
+    <property name="user.timezone" value="America/Chicago"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="user.name" value="Dan"/>
+    <property name="java.class.path" value="C:\Program Files\NetBeans 8.2\java\maven\boot\plexus-classworlds-2.4.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_151\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-eventspy.jar clean install"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_151"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_151\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_151\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_151\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_151\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_151\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_151\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_151\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_151\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_151\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Program Files\NetBeans 8.2\java\maven"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testGetAllOrganizations" time="0.42"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testAddHero" time="0.133"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testDeleteOrganizationById" time="0.114"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testUpdateOrganizationById" time="0.047"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testAddSigsting" time="0.243"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testAddOrganization" time="0.223"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testGetAllHeros" time="0.086"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testGetAllHerosBySuperpowerId" time="0.086"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testUpdateHeroById" time="0.047"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testGetAllSightings" time="0.318"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testUpdateSuperpowerById" time="0.164"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testGetOrganizationById" time="0.031"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testGetAllSuperpowers" time="0.032"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testGetSuperpowerById" time="0.047"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testGetAllSigstingsByLocationId" time="0.165"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testGetAllOrganizationsByLocationId" time="0.165"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testDeleteSuperpowerById" time="0.016"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testAddSuperpower" time="0.017"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testAddLocation" time="0.031"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testDeleteHeroById" time="0.063"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="getAllSightingsByHeroId" time="0.145"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testGetAllHerosByOrganizationId" time="0.141"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testGetHeroById" time="0.062"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="getAllOrganizationsByHeroId" time="0.062"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testDeleteSigstingById" time="0.15"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testGetAllSuperpowersByHeroId" time="0.141"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testGetSigstingById" time="0.106"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testDeleteLocationById" time="0.146"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testGetAllLocations" time="0.015"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testUpdateSigstingById" time="0.086"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testGetLocationById" time="0.093"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testUpdateLocationById" time="0.032"/>
+  <testcase classname="com.sg.dao.DaoImplTest" name="testGetAllHerosBySightingId" time="0.051"/>
+</testsuite>
