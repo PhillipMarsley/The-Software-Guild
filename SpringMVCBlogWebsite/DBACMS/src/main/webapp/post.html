@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>DBAG Post</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
+        <link rel="stylesheet" type="text/css" href="css/theme.css">
+        <style>
+            .container {
+/*                border: 3px solid green;*/
+            }
+
+            .row {
+                margin: 0;
+                width: 100%;
+/*                border: 3px solid lightgreen;*/
+            }
+
+            .col {
+                margin: .3em;
+                padding: .3em;
+/*                border: 3px solid lightblue;*/
+            }
+
+            form {
+/*                border: 3px solid red;*/
+            }
+
+            .leftSide {
+                max-width: 15%;
+                text-align: right;
+            }
+
+            .rightSide {
+                max-width: 36%;
+                text-align: left;
+            }
+
+            .rightSide input {
+                width: 100%;
+            }
+
+            .readOnly {
+                pointer-events: none;
+                cursor: default;
+            }
+
+            .form-control::-webkit-input-placeholder { color: #cccccc; }  /* WebKit, Blink, Edge */
+            .form-control:-moz-placeholder { color: #cccccc; }  /* Mozilla Firefox 4 to 18 */
+            .form-control::-moz-placeholder { color: #cccccc; }  /* Mozilla Firefox 19+ */
+            .form-control:-ms-input-placeholder { color: #cccccc; }  /* Internet Explorer 10-11 */
+            .form-control::-ms-input-placeholder { color: #cccccc; }  /* Microsoft Edge */
+
+            #submit {
+                text-align: right;
+            }
+
+            #submit button {
+                width: 100%;
+                /*border: 3px solid black;*/
+                border-style: outset;
+            }
+
+            #submit button:hover {
+                color: gray;
+                background: white;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Main Container Div -->
+        <div class="container">
+            <h1>DBAG Post</h1>
+            <div id='navbar' class='navbar'>
+                <!-- loaded from navbar.js -->
+            </div>
+
+            <!-- TinyMCE Word editor -->
+            
+            <form method="post" action="makeAThing">
+                <div class='row form-group'>
+                    <div class='col leftSide'>
+                        <label>Headline</label> 
+                   </div>
+                    <div class='col rightSide'>
+                        <input type="text" maxlength="100" name='headline' class='form-control' placeholder='Excitebike is back, baby!'/>
+                    </div>
+                </div>
+                <div class='row form-group'>
+                    <div class='col leftSide'>
+                        <label>Date</label>
+                    </div>
+                    <div id='date' class='col rightSide'>
+                        <input name='date' id='datePicker' type='date' class='form-control'/>
+                    </div>
+                </div>
+                <div class='row form-group'>
+                    <div class='col leftSide'>
+                        <label>Thumbnail Url</label>
+                    </div>
+                    <div class='col rightSide'>
+                        <input type="text" maxlength="256" name='thumbnail' class='form-control' placeholder='http://www.google.com/gaming-Img.png'/>
+                    </div>
+                </div>
+                <div class='row form-group'>
+                    <div class='col leftSide'>
+                        <label>Tags</label>
+                    </div>
+                    <div class='col rightSide'>
+                        <input type="text" maxlength="100" name='tag' id='tags' class='form-control' placeholder='#Gaming, #Player1, #Player2'/>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col'>
+                        <textarea name='postHtml' id="mceTextArea"></textarea>
+                    </div>
+                </div>
+                <div class='row form-group'>
+                    <div id='submit-button' class='col'>
+                        <button class='btn' onclick="createPost()">Submit Post for Admin Approval</button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- end Main Container div -->
+        </div>
+
+        Copyright 2018 DBAG Anonymous -- Contact us!
+
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src='js/navbar.js'></script>
+        <script src='./tinymce_4.7.9/js/tinymce/tinymce.min.js'></script>
+        <script src='./tinymce_4.7.9/js/tinymce/jquery.tinymce.min.js'></script>
+        <script type="text/javascript">
+            tinymce.init({
+                //main window
+                selector: '#mceTextArea',
+                body_id: 'mceBody',
+                branding: false,
+                elementpath: false,
+                height: 800,
+                //menubar
+                menubar: "file edit view format insert table view",
+                //toolbar
+                toolbar: 'undo redo styleselect bold italic alignleft aligncenter alignright bullist numlist outdent indent table forecolor backcolor image link media help',
+                //plugins
+                plugins: "help lists textcolor table image link media preview wordcount",
+
+                table_toolbar: "tableprops tabledelete | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol",
+
+                //spellchecking
+                browser_spellcheck: true,
+                contextmenu: false
+            });
+        </script>
+        <script src='js/post.js'></script>
+    </body>
+</html>

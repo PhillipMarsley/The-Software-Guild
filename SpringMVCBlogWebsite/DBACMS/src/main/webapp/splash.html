@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>DBAG Splash Page</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.grid.css">
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-image: url("https://image.freepik.com/foto-gratuito/tavola-di-legno-tabella-vuota-su-sfondo-sfocato_1253-1584.jpg"); 
+                background-repeat: no-repeat;
+                background-position: center;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+
+            #gameScreen {
+                width: 70em;
+                height: 26em;
+                margin-top: 1em;
+                background: black;
+                border: 1em solid black;
+                border-bottom: 3em;
+                border-style: outset;
+            }
+
+            #gameCanvas {
+                border: .8em solid black;
+                border-style: inset;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container" align="center">
+            <div id='gameScreen'>
+                <!--<img src="http://cdn.smosh.com/sites/default/files/ftpuploads/bloguploads/super-jump-world.jpg" alt="Mario Knockoff"/>-->
+                <canvas id='gameCanvas'></canvas>
+            </div>
+            <div>
+                <img src="https://8fddbd524b5976832632-bb1139a233dd1615ca84f744f3688ee9.ssl.cf5.rackcdn.com/nes/shell_designs/solid/f-standard-solid.png" alt="Controller"/>
+                <img src="http://i0.kym-cdn.com/entries/icons/facebook/000/017/447/WjuyWLki.jpg" class="pull-right" height="150" width="150" alt="Gamer Fuel"/>
+            </div>
+
+        </div>
+
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/splash.js"></script>
+    </body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>DBAG Admin Panel</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
+        <link rel="stylesheet" type="text/css" href="css/theme.css">
+
+        <style>                        
+            h2, h3 {
+                text-align: center;
+                /*border: 3px solid darkgreen;*/
+            }
+
+            .container {
+                /*border: 3px solid green;*/
+            }
+
+            #navBar {
+                /*border: 3px solid lightgreen;*/
+            }
+
+            #unapprovedPostsDiv, #userTotalDiv{
+                /*border: 3px solid red;*/
+            }
+
+            .row {
+                margin: 0;
+                border: 1px solid whitesmoke;
+                width: 100%;
+                position: relative;
+            }
+
+            .col {
+                margin: 1em;
+                padding: 1em;
+                border: 1px solid whitesmoke;
+                position: relative;
+            }
+
+            .deleteComment, .approvePost {
+                width: 0;
+                height: 0;
+                position: absolute;
+                top: .1em;
+                right: 1.2em;
+                font-size: 3em; 
+            }
+
+            .deleteComment {
+                color: #ff2020;
+            }
+
+            .deleteComment:hover {
+                color: #ffb5b5;
+            }
+
+            .approvePost {
+                color: #17e235;
+            }
+
+            .approvePost:hover {
+                color: #b5ffc0;
+            }
+
+            #search {
+                text-align: right;
+            }
+
+            #bricks, #post {
+                /*border: 3px solid orange;*/
+            }
+
+            #showAsGridSpan, #showAsListSpan {
+                padding: .4em;
+                display: inline-block;
+                cursor: pointer;
+            }
+
+            #showAsGridSpan:hover, #showAsListSpan:hover {
+                background: lightgrey;
+                color: navy;
+            }
+
+            #userList {
+                display: none;
+            }
+
+            #dropdown {
+                display: inline-block;
+                position: relative;
+                /*border: 3px solid brown;*/
+            }
+
+            #dropdownContent {                
+                display: none;
+                position: absolute;
+                z-index: 1;
+                background-color: #FDFDFD;
+                /*border: 3px solid orchid;*/
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                text-align: left;
+            }
+
+            #dropdownContent li {
+                margin: .1em;
+                padding: .3em;
+                /*border: 1px solid orange;*/
+            }
+
+            #searchDropdowns {
+                padding-top: .4em;
+            }
+
+            .allUsersGrid:hover, 
+            .allPostsGrid:hover, 
+            .allCommentsGrid:hover,
+            .allUsersList:hover, 
+            .allPostsList:hover, 
+            .allCommentsList:hover, 
+            .unapprovedPostsGrid:hover {
+                background: #adbff9;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Main Container Div -->
+        <div class="container">
+            <h1>DBAG Admin Panel</h1>
+            <div id='navbar' class='navbar'>
+                <!-- loaded from navbar.js -->
+            </div>
+
+            <!-- Posts awaiting Approval -->
+            <h2>Posts Awaiting Approval</h2>
+            <div id='unapprovedPostsDiv' class='row'>
+                <!-- populated from admin.js -->
+            </div>
+
+            <hr>
+
+            <!-- User management -->
+            <div class="row">
+                <div class="col">
+                    <h5>Users (<span id='userTotalSpan'>102</span>)</h5>
+                    <!-- populated from admin.js -->
+                </div>
+                <div id='search' class='col'>
+                    <form onsubmit='return false'> 
+                        <span id='showAsGridSpan' class="glyphicon glyphicon-th"></span> | 
+                        <span id='showAsListSpan' class="glyphicon glyphicon-menu-hamburger"></span>
+
+                        <div id='dropdown'>
+                            <input id='searchInput' placeHolder='Q Search For User'/>
+
+                            <div id='dropdownContent'>
+                                <!-- populated by admin.js -->
+                            </div>
+                        </div>
+                        <!-- 
+                                               <ul id='userList'>
+                                                    inject by admin.js 
+                                                    <li>Alfa</li>
+                                                    <li>Bravo</li>
+                                                    <li>Charlie</li>
+                                                    <li>Delta</li>
+                                                    <li>Echo</li>
+                                                    <li>Foxtrot</li>
+                                                    <li>Golf</li>
+                                                    <li>Hotel</li>
+                                                    <li>India</li>
+                                                    <li>Juliett</li>
+                                                    <li>Kilo</li>
+                                                    <li>Lima</li>
+                                                    <li>Mike</li>
+                                                    <li>November</li>
+                                                    <li>Oscar</li>
+                                                    <li>Papa</li>
+                                                    <li>Quebec</li>
+                                                    <li>Romeo</li>
+                                                    <li>Sierra</li>
+                                                    <li>Tango</li>
+                                                    <li>Uniform</li>
+                                                    <li>Victor</li>
+                                                    <li>Whiskey</li>
+                                                    <li>X-ray</li>
+                                                    <li>Yankee</li>
+                                                    <li>Zulu</li>
+                                                    <li>The Quick Brown Fox Jumps Over The Lazy Dog</li>
+                                                </ul>-->
+                    </form>
+                    <div id='searchDropdowns'>
+                        Status / Role:  
+                        <select id='statusRollSelect'>
+                            <option selected >All</option>
+                            <option>User</option>
+                            <option>Banned User</option>
+                            <option>Sub Admin</option>
+                            <option>Admin</option>
+                        </select>
+                        Order By (Join Date): 
+                        <select id='orderBySelect'>
+                            <option selected>Newest</option>
+                            <option>Oldest</option>
+                        </select> 
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Bricks/List Display -->
+            <div id="users">
+                <div class='row'>
+                    <div class='col'>
+                        <h3>All Users</h3>
+                    </div>
+                </div>
+                <div id='allUsers' class='row'>
+                    <!-- filled in my admin.js -->
+                </div>
+            </div>
+
+            <!-- Single User Display -->
+            <div id="singleUser">
+                <div class='row'>
+                    <div class='col'>
+                        <h3>Selected Single User</h3>
+                    </div>
+                </div>
+                <div id='selectedUser' class='row'>
+                    <!-- filled in by admin.js -->
+                </div>
+            </div>
+
+            <div id="posts">
+                <div class='row'>
+                    <div class='col'>
+                        <h3>Selected User Posts</h3>
+                    </div>
+                </div>
+                <div id='allPosts' class='row'>
+                    <!-- filled in by admin.js -->
+                </div>
+            </div>
+
+            <div id="comments">
+                <div class='row'>
+                    <div class='col'>
+                        <h3>Selected User Comments</h3>
+                    </div>
+                </div>
+                <div id='allComments' class='row'>
+                    <!-- filled in by admin.js -->
+                </div>
+            </div>
+
+            <!-- end Main Container div -->
+        </div>
+
+        Copyright 2018 DBAG Anonymous -- Contact us!
+
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src='js/navbar.js'></script>
+        <script src="js/admin.js"></script>
+    </body>
+</html>

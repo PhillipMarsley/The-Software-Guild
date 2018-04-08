@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>DBAG Admin Panel</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <!-- Main Container Div -->
+        <div class="container">
+            <h1>Admin Panel</h1>
+
+            <!-- Posts awaiting Approval -->
+            <div align="center">
+                <h2>Posts Awaiting Approval</h2>
+                <!-- populate this with Unapproved posts -->
+            </div>
+
+            <hr>
+
+            <!-- User management -->
+                <div class="row">
+                    <div class="col">
+                        <h5>Users (#total Users)</h5>
+                    </div>
+                    <div class="col">
+                        <h5> X | =  Search:</h5>
+                    </div>
+                </div>
+
+            <!-- User Bricks/List Display -->
+            <div id="bricks" align="center">
+                <!-- 3x3 grid of Users and user info -->
+            </div>
+
+            <!-- Single User Display -->
+            <div id="post" align="center">
+                <!-- populate this with the full information and available actions on the clicked User -->
+            </div>
+
+            <!-- end Main Container div -->
+        </div>
+
+        Copyright 2018 DBAG Anonymous -- Contact us!
+
+        <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
+        <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+    </body>
+</html>
