@@ -129,9 +129,8 @@ A collection of work from my time at the Software Guild Bootcamp
 > Project in web development and database design using NetBeans IDE and MySQL Workbench.
 > HTML, CSS, Bootstrap / Bootstrap Grid, javascript, jQuery, Java, SQL, JDBCs
 > * A CMS Blog website for a small company that allows them to manage a blog website.
-> * This project is not complete and only a sample of the general idea and features we wanted to incoperate.
 > * This project was build as a group of 3 with each of us having designated tasks and constant commucationion.
-> * My job was mostly on the javascript side of things (website interactive features, admin pannel, splash page game-menu, etc.) 
+> * This project is not complete and only a sample of the general idea and features we wanted to incoperate.
 >   * Used Jira to keep track of project progress
 >   * Used git to push and pull changes
 >   * Implimented tinyMCE for blog post creation.
@@ -141,3 +140,4 @@ A collection of work from my time at the Software Guild Bootcamp
 >   * Impliments exception handling
 >   * Impliments unit testing though jUnit
 >   * Data persists though a SQL database.
+> * My job was mostly on the web side of things (website interactive features via javascript, admin pannel, splash page game-menu, adding static pages, etc.) 
