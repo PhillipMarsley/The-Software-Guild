@@ -2,30 +2,9 @@
 
 A collection of work from my time at the Software Guild Bootcamp
 
-
-> **PreWork**
-> ---------------
-> Projects in web development using Visual Studio Code
-> * Labs
->   * Exercises to learn HTML and the caculations of the Box Model
-> * Portfollio
->   * A 3-page website that includes a homepage, skills, and contact page to learn HTML and CSS
->   * After learning the basics of CSS, Bootstrap was implimented.
-> * RestaurantSite
->   * A 3-page website that includes a hompage, menu, and contact page to learn HTML and CS
->   * After learning the basics of CSS, Bootstrap was impliemted.
-> * All other files are simple javascript exercises to understand basic programming concepts (Loops, If/Else, etc) that can be applied across all languages.
-  
 - - - -
   
-> HelloWorld
-> ---------------
-> Project in java development using NetBeans IDE; output is printed to the console.
-> * Prints "Hello World"
-
-- - - -
-  
-> Assignment_BasicProgrammingConcepts
+> BasicProgrammingConcepts
 > ---------------
 > Projects in java development using NetBeans IDE; output is printed to the console.
 > * DogGenetics
@@ -50,7 +29,7 @@ A collection of work from my time at the Software Guild Bootcamp
 
 - - - -
   
-> VendingMachine
+> VendingMachine_Spring
 > ---------------
 > Project in java development using NetBeans IDE; output is printed to the console.
 > * A program to allow a user to use a vitural vending machine. Users can insert coins and buy items with that chance.
@@ -79,7 +58,7 @@ A collection of work from my time at the Software Guild Bootcamp
 - - - -
 - - - -
   
-> assignment web VendingMachine
+> VendingMachine_REST
 > ---------------
 > Project in web development using Visual Studio Code
 > HTML, CSS, Bootstrap, javascript, jQuery
@@ -88,7 +67,7 @@ A collection of work from my time at the Software Guild Bootcamp
 
 - - - -
   
-> NewVendingMachine
+> VendingMachine_JSP
 > ---------------
 > Project in web development using NetBeans IDE
 > JSP, CSS, Bootstrap, javascript, jQuery, Java
@@ -97,7 +76,7 @@ A collection of work from my time at the Software Guild Bootcamp
 
 - - - -
   
-> hotelReservation
+> HotelReservation
 > ---------------
 > Project in SQL development using MySQL Workbench.
 > * A database deisgned for a made up hotel-chain / company to store:
@@ -109,7 +88,7 @@ A collection of work from my time at the Software Guild Bootcamp
 
 - - - -
   
-> SuperheroProject
+> SuperheroSighting
 > ---------------
 > Project in web development and database design using NetBeans IDE and MySQL Workbench.
 > HTML, CSS, Bootstrap / Bootstrap Grid, javascript, jQuery, Java, SQL, JDBCs
@@ -124,7 +103,7 @@ A collection of work from my time at the Software Guild Bootcamp
 
 - - - -
   
-> SpringMVCBlogWebsite
+> CMSBlog
 > ---------------
 > Project in web development and database design using NetBeans IDE and MySQL Workbench.
 > HTML, CSS, Bootstrap / Bootstrap Grid, javascript, jQuery, Java, SQL, JDBCs
