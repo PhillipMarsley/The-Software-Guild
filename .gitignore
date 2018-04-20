@@ -1,25 +1,38 @@
-/FlooringMasterySpringMVC/nbproject/
-/FlooringMasterySpringMVC/target/
-/BasicProgrammingConcepts/target/
-/SuperheroSightingREST/SpringMVCHeroSighting2 (Assignment)/target/
-/SuperheroSighting-WebREST/SpringMVCHeroSighting2 (Assignment)/target/
-/VendingMachine-WebJSP/target/
-/WebREST SuperheroSighting/SpringMVCHeroSighting2 (Assignment)/target/
-/WebREST_SuperheroSighting/SpringMVCHeroSighting2 (Assignment)/target/
-/Web_JSP_ VendingMachine/target/
-/Web_REST_SuperheroSighting/SpringMVCHeroSighting2 (Assignment)/target/
-/MVC_Spring_VendingMachineSpringMVC/nbproject/
-/MVC_Spring_VendingMachineSpringMVC/target/
-/MVC_Spring_VendingMachine/nbproject/
-/MVC_Spring_VendingMachine/target/
-/MVC_Spring_FlooringMastery/nbproject/
-/MVC_Spring_FlooringMastery/target/
-/MVC_DVDLibrary/target/
-/SpringMVC_VendingMachine/nbproject/
-/SpringMVC_VendingMachine/target/
-/SuperheroSighting/SpringMVCHeroSighting2 (Assignment)/target/
-/Spring_VendingMachine/nbproject/
-/Spring_VendingMachine/target/
-/VendingMachine_Spring/nbproject/
-/VendingMachine_Spring/target/
-/VendingMachine_JSP/target/
+
+# Created by https://www.gitignore.io/api/java,netbeans
+
+### Java ###
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+nbactions.xml
+
+
+# End of https://www.gitignore.io/api/java,netbeans
