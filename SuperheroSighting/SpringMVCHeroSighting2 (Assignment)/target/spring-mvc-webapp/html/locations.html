@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Locations</title>
+        <meta charset='UTF-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' type='text/css' href='../css/bootstrap.min.css'>
+        <link rel='stylesheet' type='text/css' href='../css/bootstrap-grid.min.css'>
+        <link rel='stylesheet' type='text/css' href='../css/header.css'>
+        <style>
+            #editLocationDiv, #addLocationDiv {
+                background: rgba(200, 200, 200, .5);
+                text-align: center;
+            }
+
+            #addLocationButton {
+                margin: 0 auto;
+            }
+
+            .row {
+                text-align: center;
+            }
+
+            .tableButton {
+                width: 80%;
+                padding: .1em .4em;
+                margin: .2em -.5em;
+            }
+
+            .removeTableApperance {
+                border: none;
+                background: transparent;
+            }
+
+            .errorDiv {
+                margin: .2em;
+                padding: .2em;
+                border: 2px solid red; 
+                background: #ffe8e8; 
+            }
+        </style>
+    </head>
+    <body>
+        <div id='header'>
+            <h1>HERO</h1>
+            <h4><i>Hero Education and Relationship Organization</i></h4>
+            <img src='https://upload.wikimedia.org/wikipedia/commons/5/5c/Placeholder_couple_superhero.png' alt='Image did not load.'>
+        </div>
+
+        <div id='navbar' class='navbar'></div>
+
+        <div class='container'>
+            <button id='addLocationButton' class="btn btn-default" onclick='openAddLocationDiv()'>Add a new Location</button>
+        </div>
+
+        <div id='addLocationDiv' class='container'>
+            <h3>Add a new Location</h3>
+            <div class='row'>
+                <div id='addFormErrors' class='col'>
+                    <!-- filled in by heros.js -->
+                </div>
+            </div>
+            <form class="form-horizontal" role="form" method='POST' action="" onsubmit="return false">
+                <div class='row'>
+                    <div class='col'>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Id</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='addId' type="text" class="form-control" readonly='readonly'/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Name</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='addName' type="text" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Description</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='addDescription' type="text" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Country</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='addCountry' type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>State</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='addState' type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col'>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>City</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='addCity' type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Street</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='addStreet' type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Zip</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='addZip' type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Latitude</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='addLatitude' type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Longitude</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='addLongitude' type="text" class="form-control"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default" onclick='addLocation()'>Add Location</button>
+                </div>
+            </form>
+        </div>
+
+        <div id='editLocationDiv' class='container'>
+            <h3>Edit a Location</h3>
+            <div class='row'>
+                <div id='formErrors' class='col'>
+                    <!-- filled in by heros.js -->
+                </div>
+            </div>
+            <form class="form-horizontal" role="form" method="POST" action="" onsubmit="return false">
+                <div class='row'>
+                    <div class='col'>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Id</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='id' type="text" class="form-control" readonly='readonly'/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Name</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='name' type="text" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Description</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='description' type="text" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Country</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='country' type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>State</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='state' type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col'>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>City</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='city' type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Street</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='street' type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Zip</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='zip' type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Latitude</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='latitude' type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class='col-2'>
+                                <label class='control-label'>Longitude</label>
+                            </div>
+                            <div class="col-8">
+                                <input id='longitude' type="text" class="form-control"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default" onclick='updateLocation()'> Update</button>
+                </div>
+            </form>
+        </div>
+
+        <hr/>
+
+        <div class='container-fluid'>
+            <div class='row'>
+                <table id='locationTable'>
+                    <tr>
+                        <th colspan='10'>LOCATIONS</th>
+                    </tr>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Country</th>
+                        <th>State</th>
+                        <th>City</th>
+                        <th>Street</th>
+                        <th>Zip</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                        <th class='removeTableApperance'></th>
+                        <th class='removeTableApperance'></th>
+                        <th class='removeTableApperance'></th>
+                    </tr>
+                    <!-- Added Columns and Rows -->
+                </table>
+            </div>
+        </div>
+
+        <script src="../js/jquery-3.1.1.min.js"></script>
+        <script src='../js/navbar.js'></script>
+        <script src='../js/locations.js'></script>
+    </body>
+</html>

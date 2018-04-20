@@ -1,0 +1,136 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 2, 2018, 2:49:46 PM
+    Author     : Dan
+*/
+
+/*
+=====================================
+General
+=====================================
+*/
+
+body {
+    width: 96%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+hr {
+    border: 1px solid black;
+}
+
+h3 {
+    margin-bottom: .2em;
+}
+
+/*
+=====================================
+Layout
+=====================================
+*/
+
+.container-fluid {
+    background: linear-gradient(-45deg, gray, cornsilk, gray);
+    border-radius: 1em;
+    padding: 1em;
+}
+
+.firstHalf {
+    background: linear-gradient(-45deg, cornsilk, whitesmoke, cornsilk);
+    border-right: 10px solid gray;
+}
+
+.secondHalf {
+    background: linear-gradient(-45deg, cornsilk, whitesmoke, cornsilk);
+    padding-bottom: 1em;
+}
+
+.row {
+    margin: auto;
+}
+
+.col {
+    margin: auto;
+    padding: .3em;
+}
+
+.itemBox {
+    margin: 1em;
+    border-color: #e5e5e5;
+    border-style: outset;
+    border-width: .5em;
+    border-radius: 1em;
+    box-shadow: 5px 8px 8px 5px rgba(0,0,0,0.1);
+    background: linear-gradient(-45deg, #33d81f, #e0fedc, #e0fedc, #33d81f);
+}
+
+.itemBox:hover {
+    border-color: #ffffff;
+    background: linear-gradient(45deg, #33d81f, #e0fedc, #e0fedc, #33d81f);
+}
+
+.itemBoxRow {
+    padding: .4em;
+    display: block;
+}
+
+.number {
+    height: 1em;
+    padding-top: 0;
+    text-align: left;
+}
+
+.quantity {
+    margin-top: 1em;
+}
+
+/* 
+===================================
+Forms 
+==================================
+*/
+
+label {
+    font-size: 150%;
+}
+
+input,
+button {
+    width: 90%;
+    margin: 0 auto;
+    padding: .2em;
+    display: block;
+    text-align: center;
+}
+
+button {
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.1);
+    border-color: #e5e5e5;
+    border-style: outset;
+    border-width: .2em;
+    border-radius: .4em;
+    background: linear-gradient(-45deg, gainsboro, ghostwhite, gainsboro);
+}
+
+button:hover {
+    background: linear-gradient(-90deg, whitesmoke, white, whitesmoke);
+}
+
+input {
+    font-size: 120%;
+}
+
+@-webkit-keyframes marquee {
+    100% {text-indent:10%;}
+    50% {text-indent:-100%}
+}
+
+#inputChangeRecieved.marquee {
+    -webkit-animation: marquee 5s infinite;
+    -webkit-animation-timing-function: linear;
+}
