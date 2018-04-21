@@ -6,33 +6,50 @@ Pictures of my work from my time at the Software Guild Bootcamp
   
 > BasicProgrammingConcepts
 > ---------------
-> IMG
-> IMG
-> IMG
+> ### DogGenetics
+> <kbd><img src="https://github.com/PhillipMarsley/The-Software-Guild/blob/master/images/BasicProgrammingConcepts_DogGenetics.PNG" /></kbd>
+>
+> ### Healthy Hearts
+> <kbd><img src="https://github.com/PhillipMarsley/The-Software-Guild/blob/master/images/BasicProgrammingConcepts_HealthyHearts.PNG" /></kbd>
+>
+> ### Rock Paper Sissors
+> <kbd><img src="https://github.com/PhillipMarsley/The-Software-Guild/blob/master/images/BasicProgrammingConcepts_RockPaperSissors_Start.PNG" /></kbd>
+>
+> <kbd><img src="https://github.com/PhillipMarsley/The-Software-Guild/blob/master/images/BasicProgrammingConcepts_RockPaperSissors_Choose.PNG" /></kbd>
+>
+> <kbd><img src="https://github.com/PhillipMarsley/The-Software-Guild/blob/master/images/BasicProgrammingConcepts_RockPaperSissors_PlayAgain.PNG" /></kbd>
+>
+> <kbd><img src="https://github.com/PhillipMarsley/The-Software-Guild/blob/master/images/BasicProgrammingConcepts_RockPaperSissors_End.PNG" /></kbd>
 
 - - - -
   
 > DVDLibrary
 > ---------------
-> IMG
-> IMG
-> IMG
+> <kbd><img src="https://github.com/PhillipMarsley/The-Software-Guild/blob/master/images/DVDLibrary_Start.PNG" /></kbd>
+>
+> <kbd><img src="https://github.com/PhillipMarsley/The-Software-Guild/blob/master/images/DVDLibrary_ViewAll.PNG" /></kbd>
+>
+> <kbd><img src="https://github.com/PhillipMarsley/The-Software-Guild/blob/master/images/DVDLibrary_End.PNG" /></kbd>
 
 - - - -
   
 > VendingMachine_Spring
 > ---------------
-> IMG
-> IMG
-> IMG
+> <kbd><img src="" /></kbd>
+>
+> <kbd><img src="" /></kbd>
+>
+> <kbd><img src="" /></kbd>
 
 - - - -
   
 > FlooringMastery
 > ---------------
-> IMG
-> IMG
-> IMG
+> <kbd><img src="" /></kbd>
+>
+> <kbd><img src="" /></kbd>
+>
+> <kbd><img src="" /></kbd>
 
 - - - - 
 - - - -
@@ -40,37 +57,48 @@ Pictures of my work from my time at the Software Guild Bootcamp
   
 > VendingMachine_REST
 > ---------------
-> IMG
-> IMG
-> IMG
+> <kbd><img src="" /></kbd>
+>
+> <kbd><img src="" /></kbd>
+>
+> <kbd><img src="" /></kbd>
+
 - - - -
   
 > VendingMachine_JSP
 > ---------------
-> IMG
-> IMG
-> IMG
+> <kbd><img src="" /></kbd>
+>
+> <kbd><img src="" /></kbd>
+>
+> <kbd><img src="" /></kbd>
 
 - - - -
   
 > HotelReservation
 > ---------------
-> IMG
-> IMG
-> IMG
+> <kbd><img src="" /></kbd>
+>
+> <kbd><img src="" /></kbd>
+>
+> <kbd><img src="" /></kbd>
 
 - - - -
   
 > SuperheroSighting
 > ---------------
-> IMG
-> IMG
-> IMG
+> <kbd><img src="" /></kbd>
+>
+> <kbd><img src="" /></kbd>
+>
+> <kbd><img src="" /></kbd>
 
 - - - -
   
 > CMSBlog
 > ---------------
-> IMG
-> IMG
-> IMG
+> <kbd><img src="" /></kbd>
+>
+> <kbd><img src="" /></kbd>
+>
+> <kbd><img src="" /></kbd>
